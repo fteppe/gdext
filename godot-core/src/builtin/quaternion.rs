@@ -11,6 +11,7 @@ use crate::builtin::{inner, real, Basis, EulerOrder, RQuat, Vector3};
 
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssign};
 
+use super::RVec3;
 use super::meta::impl_godot_as_self;
 
 #[derive(Copy, Clone, PartialEq, Debug)]
@@ -62,6 +63,11 @@ impl Quaternion {
         } else {
             Self::from_angle_axis(v, theta)
         }
+    }
+
+    pub fn get_arc_rotation(from : Vector3, to : Vector3) -> Quaternion
+    {
+         RQuat::from_rotation_arc( RVec3::from_front(&from) ,RVec3::from_front(&to) ).to_front()
     }
 
     pub fn from_euler(euler: Vector3) -> Self {
