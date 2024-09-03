@@ -7,11 +7,10 @@ use godot_ffi as sys;
 use sys::{ffi_methods, GodotFfi};
 
 use crate::builtin::math::{ApproxEq, FloatExt, GlamConv, GlamType};
-use crate::builtin::{inner, real, Basis, EulerOrder, RQuat, Vector3};
+use crate::builtin::{inner, real, Basis, EulerOrder, RQuat, RVec3,Vector3};
 
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssign};
 
-use super::RVec3;
 use super::meta::impl_godot_as_self;
 
 #[derive(Copy, Clone, PartialEq, Debug)]
